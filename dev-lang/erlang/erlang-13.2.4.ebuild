@@ -74,7 +74,7 @@ src_configure() {
 	use java || export JAVAC=false
 
 	# see http://erlang.2086793.n4.nabble.com/erts-configure-fails-on-64-bit-Darwin-td2247956.html.
-	if [[ ${CHOST} == "x86_64-apple-darwin*" ]] ; then
+	if [[ ${CHOST} == x86_64-apple-darwin* ]] ; then
 		myconf="${myconf} --enable-darwin-64bit"
 	fi
 
