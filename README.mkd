@@ -2,6 +2,8 @@
 
 kiyoya's personal Gentoo portage overlay.
 
+Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</code> to your layman's <code>overlays</code>.
+
 ## Ebuilds for new packages
 
 * Common Sense Computing Initiative
