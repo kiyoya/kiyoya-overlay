@@ -7,20 +7,14 @@ inherit ruby
 USE_RUBY="ruby18 ruby19"
 
 DESCRIPTION=""
-HOMEPAGE="http://1978th.net/tokyocabinet/rubydoc/"
-SRC_URI="http://1978th.net/tokyocabinet/rubypkg/tokyocabinet-ruby-${PV}.tar.gz"
+HOMEPAGE="http://fallabs.com/tokyocabinet/rubydoc/"
+SRC_URI="http://fallabs.com/tokyocabinet/rubypkg/${P}.tar.gz"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~x86 ~amd64 ~amd64-linux ~x86-linux ~x86-macos ~x64-macos"
 IUSE=""
 
 DEPEND="dev-db/tokyocabinet
 	dev-lang/ruby"
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack ${A}
-	cd ${WORKDIR}
-	mv tokyocabinet-ruby-${PV} ${P}
-}
