@@ -6,13 +6,13 @@ EAPI=3
 
 inherit distutils
 
-DESCRIPTION="Python Tokyo Cabinet interface"
-HOMEPAGE="http://packages.python.org/tokyocabinet-python/"
+DESCRIPTION="a complete python wrapper for the Tokyo Cabinet library"
+HOMEPAGE="http://pypi.python.org/pypi/tokyocabinet"
 SRC_URI="http://pypi.python.org/packages/source/t/${PN}/${P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE=""
 
 RDEPEND="dev-db/tokyocabinet"
