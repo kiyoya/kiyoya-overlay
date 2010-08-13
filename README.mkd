@@ -1,0 +1,20 @@
+# kiyoya-overlay
+
+kiyoya's personal Gentoo portage overlay.
+
+## Ebuilds for new packages
+
+* ConceptNet
+* Divisi
+* South
+
+* MessagePack and its bindings
+
+* Tiarra
+
+* TokyoCabinet bindings
+* TokyoTyrant bindings
+
+## Ebuilds for Gentoo Prefix Portage (fixes)
+
+* Erlang
