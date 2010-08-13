@@ -8,19 +8,13 @@ inherit perl-module
 
 DESCRIPTION=""
 HOMEPAGE="http://1978th.net/tokyocabinet/perldoc/"
-SRC_URI="http://1978th.net/tokyocabinet/perlpkg//tokyocabinet-perl-${PV}.tar.gz"
+SRC_URI="http://fallabs.com/tokyocabinet/perlpkg/${P}.tar.gz"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~x86 ~amd64 ~amd64-linux ~x86-linux ~x86-macos ~x64-macos"
 IUSE=""
 
 DEPEND="dev-db/tokyocabinet
 	dev-lang/perl"
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack ${A}
-	cd ${WORKDIR}
-	mv tokyocabinet-perl-${PV} ${P}
-}
