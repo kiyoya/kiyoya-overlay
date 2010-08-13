@@ -15,7 +15,7 @@ HOMEPAGE="http://divisi.media.mit.edu/"
 SRC_URI="http://pypi.python.org/packages/source/D/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL"
-SLOT="0"
+SLOT="2"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE=""
 
