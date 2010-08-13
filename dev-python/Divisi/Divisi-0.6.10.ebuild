@@ -13,7 +13,7 @@ SRC_URI="http://pypi.python.org/packages/source/D/${PN}/${P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE=""
 
 RDEPEND="dev-python/numpy"
