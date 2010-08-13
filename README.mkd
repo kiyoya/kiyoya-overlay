@@ -5,16 +5,16 @@ kiyoya's personal Gentoo portage overlay.
 ## Ebuilds for new packages
 
 * Common Sense Computing Initiative
-	* [ConceptNet](http://csc.media.mit.edu/conceptnet) [ dev-python/ConceptNet ]
-	* [Divisi](http://csc.media.mit.edu/divisi) [ dev-python/Divisi ]
+	* [ConceptNet](http://csc.media.mit.edu/conceptnet) : <code>dev-python/ConceptNet</code>
+	* [Divisi](http://csc.media.mit.edu/divisi) : <code>dev-python/Divisi</code>
 * MessagePack and its bindings
-* [South](http://pypi.python.org/pypi/South) [ dev-python/South ]
-* [Tiarra](http://www.clovery.jp/tiarra/) [ net-irc/tiarra ]
+* [South](http://pypi.python.org/pypi/South) : <code>dev-python/South</code>
+* [Tiarra](http://www.clovery.jp/tiarra/) : <code>net-irc/tiarra</code>
 * TokyoCabinet APIs
-	* for Perl [ dev-perl/tokyocabinet-perl ]
-	* for Ruby [ dev-ruby/tokyocabinet-ruby ]
+	* for Perl : <code>dev-perl/tokyocabinet-perl</code>
+	* for Ruby : <code>dev-ruby/tokyocabinet-ruby</code>
 	* (Unofficial) for Python
-		* [tokyocabinet](http://pypi.python.org/pypi/tokyocabinet) [ dev-python/tokyocabinet ]
+		* [tokyocabinet](http://pypi.python.org/pypi/tokyocabinet) : <code>dev-python/tokyocabinet</code>
 * TokyoTyrant bindings
 
 ## Ebuilds for Gentoo Prefix Portage (fixes)
