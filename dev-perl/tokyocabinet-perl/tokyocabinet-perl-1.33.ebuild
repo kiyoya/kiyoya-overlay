@@ -6,8 +6,8 @@ EAPI="2"
 
 inherit perl-module
 
-DESCRIPTION=""
-HOMEPAGE="http://1978th.net/tokyocabinet/perldoc/"
+DESCRIPTION="Perl Binding of Tokyo Cabinet"
+HOMEPAGE="http://fallabs.com/tokyocabinet/perldoc/"
 SRC_URI="http://fallabs.com/tokyocabinet/perlpkg/${P}.tar.gz"
 
 LICENSE=""
