@@ -5,20 +5,17 @@
 inherit ruby
 
 DESCRIPTION="Tokyo Tyrant API for Ruby"
-HOMEPAGE="http://1978th.net/tokyotyrant/rubypkg/"
-SRC_URI="http://1978th.net/tokyotyrant/rubypkg/tokyotyrant-ruby-${PV}.tar.gz"
+HOMEPAGE="http://fallabs.com/tokyotyrant/rubydoc/"
+SRC_URI="http://fallabs.com/tokyotyrant/rubypkg/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE=""
 
-RDEPEND=""
-DEPEND="net-misc/tokyotyrant dev-lang/ruby"
-
-src_compile() {
-	:
-}
+RDEPEND="net-misc/tokyotyrant
+	dev-lang/ruby"
+DEPEND="${RDEPEND}"
 
 src_install() {
 	local sitelibdir
