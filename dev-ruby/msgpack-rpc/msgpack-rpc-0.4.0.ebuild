@@ -9,7 +9,7 @@ DESCRIPTION="RPC library using MessagePack"
 HOMEPAGE="http://msgpack.sourceforge.jp/"
 LICENSE="Apache-2.0"
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 SLOT="0"
 IUSE=""
 

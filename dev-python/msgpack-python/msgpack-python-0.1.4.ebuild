@@ -4,15 +4,13 @@
 
 inherit python
 
-MY_PN="msgpack-python"
-
 DESCRIPTION="MessagePack (de)serializer for Python"
-HOMEPAGE="http://pypi.python.org/pypi/msgpack/"
-SRC_URI="http://pypi.python.org/packages/source/m/${MY_PN}/${MY_PN}-${PV}.tar.gz"
+HOMEPAGE="http://pypi.python.org/pypi/msgpack-python"
+SRC_URI="http://pypi.python.org/packages/source/m/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE=""
 
 DEPEND="dev-libs/msgpack
