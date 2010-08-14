@@ -9,7 +9,11 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 * Common Sense Computing Initiative
 	* [ConceptNet](http://csc.media.mit.edu/conceptnet) : <code>dev-python/ConceptNet</code>
 	* [Divisi](http://csc.media.mit.edu/divisi) : <code>dev-python/Divisi</code>
-* MessagePack and its bindings
+* [CVXOPT](http://abel.ee.ucla.edu/cvxopt/) : <code>dev-python/cvxopt</code>
+* MessagePack bindings
+	* for Ruby (RPC) : <code>dev-ruby/msgpack-rpc</code>
+	* (Unofficial) for Python
+		* [msgpack-python](http://pypi.python.org/pypi/msgpack-python) : <code>dev-python/msgpack-python</code>
 * [South](http://pypi.python.org/pypi/South) : <code>dev-python/South</code>
 * [Tiarra](http://www.clovery.jp/tiarra/) : <code>net-irc/tiarra</code>
 * TokyoCabinet APIs
@@ -17,7 +21,9 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 	* for Ruby : <code>dev-ruby/tokyocabinet-ruby</code>
 	* (Unofficial) for Python
 		* [tokyocabinet](http://pypi.python.org/pypi/tokyocabinet) : <code>dev-python/tokyocabinet</code>
-* TokyoTyrant bindings
+* TokyoTyrant APIs
+	* for Perl : <code>dev-perl/tokyotyrant-perl</code>
+	* for Ruby : <code>dev-ruby/tokyotyrant-ruby</code>
 
 ## Ebuilds for Gentoo Prefix Portage (fixes)
 
