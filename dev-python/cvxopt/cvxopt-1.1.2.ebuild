@@ -7,12 +7,12 @@ EAPI=3
 inherit distutils
 
 DESCRIPTION="Python module for convex optimization"
-HOMEPAGE="http://abel.ee.ucla.edu/cvxopt"
+HOMEPAGE="http://abel.ee.ucla.edu/cvxopt/"
 SRC_URI="http://abel.ee.ucla.edu/src/${P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE="fftw glpk gsl" # dsdp mosek
 
 DEPEND="dev-python/setuptools
