@@ -10,6 +10,8 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 	* [ConceptNet](http://csc.media.mit.edu/conceptnet) : <code>dev-python/ConceptNet</code>
 	* [Divisi](http://csc.media.mit.edu/divisi) : <code>dev-python/Divisi</code>
 * [CVXOPT](http://abel.ee.ucla.edu/cvxopt/) : <code>dev-python/cvxopt</code>
+* [FastCommunity](http://www.cs.unm.edu/~aaron/research/fastmodularity.htm) : <code>sci-mathematics/FastCommunity</code>
+* [Large Graph Layout (LGL)](http://lgl.sourceforge.net/) : <code>sci-visualization/lgl</code>
 * MessagePack bindings
 	* for Ruby (RPC) : <code>dev-ruby/msgpack-rpc</code>
 	* (Unofficial) for Python
