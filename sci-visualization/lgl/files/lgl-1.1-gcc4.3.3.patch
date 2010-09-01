@@ -1,0 +1,75 @@
+--- include/grid.hpp.0	2010-09-01 23:04:00.099085701 +0900
++++ include/grid.hpp	2010-09-01 23:04:29.340369617 +0900
+@@ -1,23 +1,23 @@
+-/*
+- *  
+- *  Copyright (c) 2002 Alex Adai, All Rights Reserved.
+- *  
+- *  This program is free software; you can redistribute it and/or
+- *  modify it under the terms of the GNU General Public License as
+- *  published by the Free Software Foundation; either version 2 of
+- *  the License, or (at your option) any later version.
+- *  
+- *  This program is distributed in the hope that it will be useful,
+- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+- *  GNU General Public License for more details.
+- *  
+- *  You should have received a copy of the GNU General Public License
+- *  along with this program; if not, write to the Free Software
+- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+- *  MA 02111-1307 USA
+- *  
+-*/
++/*
++ *  
++ *  Copyright (c) 2002 Alex Adai, All Rights Reserved.
++ *  
++ *  This program is free software; you can redistribute it and/or
++ *  modify it under the terms of the GNU General Public License as
++ *  published by the Free Software Foundation; either version 2 of
++ *  the License, or (at your option) any later version.
++ *  
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ *  GNU General Public License for more details.
++ *  
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston,
++ *  MA 02111-1307 USA
++ *  
++*/
+ #ifndef _GRID_HPP_
+ #define _GRID_HPP_
+ 
+@@ -25,6 +25,7 @@
+ #include "fixedVec.hpp"
+ #include <cassert>
+ #include <iostream>
++#include <cstdlib>
+ 
+ //------------------------------------------------------------
+ 
+--- include/sphere.hpp.0	2010-09-01 23:05:51.065818834 +0900
++++ include/sphere.hpp	2010-09-01 23:05:57.895039006 +0900
+@@ -96,7 +96,7 @@
+ {
+   typedef std::vector< typename Sphere::vec_type > VV; 
+   typedef typename Sphere::vec_type vec_type;
+-  VV v( count , s.dimension() );
++  VV v( count );
+   for ( int ii=0; ii<count; ++ii ) {
+       v[ii] = randomPointOnSurface( s );
+   }
+--- include/particleContainerChaperone.hpp.0	2010-09-01 23:04:41.313812390 +0900
++++ include/particleContainerChaperone.hpp	2010-09-01 23:04:52.343130883 +0900
+@@ -29,6 +29,7 @@
+ #include <iostream>
+ #include <fstream>
+ #include <string>
++#include <cstring>
+ 
+ //----------------------------------------------------
+ 
