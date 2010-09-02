@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<project name="neo4j" default="compile" basedir=".">
+
+	<property file="${user.home}/build.properties"/>
+
+	<property name="name" value="neo4j-kernel"/>
+	<property name="year" value="2010" />
+
+	<property name="debug" value="off"/>
+	<property name="optimize" value="off"/>
+	<property name="deprecation" value="on"/>
+
+	<property name="build.dir" value="build"/>
+	<property name="build.classes.dir" value="${build.dir}/classes"/>
+	<property name="src.dir" value="src"/>
+
+	<path id="class.path">
+		<fileset dir=".">
+			<include name="geronimo-jta_*_spec-*.jar"/>
+		</fileset>
+		<pathelement path="${build.classes.dir}"/>
+		<pathelement path="${java.class.path}"/>
+	</path>
+
+	<target name="compile">
+		<mkdir dir="${build.classes.dir}"/>
+		<javac destdir="${build.classes.dir}" debug="${debug}"
+			deprecation="${deprecation}" optimize="${optimize}"
+			srcdir="${src.dir}">
+			<classpath refid="class.path"/>
+		</javac>
+	</target>
+
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar jarfile="${name}.jar" basedir="${build.classes.dir}"/>
+	</target>
+</project>
