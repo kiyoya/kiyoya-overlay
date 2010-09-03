@@ -32,3 +32,4 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 ## Ebuilds for Gentoo Prefix Portage (fixes)
 
 * Erlang
+* <code>sci-libs/ufconfig</code>
