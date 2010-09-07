@@ -33,3 +33,5 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 
 * Erlang
 * <code>sci-libs/ufconfig</code>
+* <code>=media-libs/libpng-1.2*</code>
+
