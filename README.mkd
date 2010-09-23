@@ -19,6 +19,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 	* (Unofficial) for Python
 		* [msgpack-python](http://pypi.python.org/pypi/msgpack-python) : <code>dev-python/msgpack-python</code>
 * [neo4j](http://neo4j.org) : <code>dev-java/neo4j-kernel</code>
+* [redsvd](http://code.google.com/p/redsvd/) : <code>dev-cpp/redsvd</code>
 * [South](http://pypi.python.org/pypi/South) : <code>dev-python/South</code>
 * [Tiarra](http://www.clovery.jp/tiarra/) : <code>net-irc/tiarra</code>
 * TokyoCabinet APIs
