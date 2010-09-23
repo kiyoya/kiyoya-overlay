@@ -11,6 +11,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 	* [Divisi](http://csc.media.mit.edu/divisi) : <code>dev-python/Divisi</code>
 * [CVXOPT](http://abel.ee.ucla.edu/cvxopt/) : <code>dev-python/cvxopt</code>
 * [FastCommunity](http://www.cs.unm.edu/~aaron/research/fastmodularity.htm) : <code>sci-mathematics/FastCommunity</code>
+* [Eigen3](http://eigen.tuxfamily.org/) : <code>=dev-cpp/eigen3*</code>
 * [JCC](http://pypi.python.org/pypi/JCC/) : <code>dev-python/JCC</code>
 * [Large Graph Layout (LGL)](http://lgl.sourceforge.net/) : <code>sci-visualization/lgl</code>
 * MessagePack bindings
