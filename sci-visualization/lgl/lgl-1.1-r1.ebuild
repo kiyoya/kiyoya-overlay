@@ -4,7 +4,7 @@
 
 EAPI=3
 
-inherit eutils
+inherit eutils toolchain-funcs java-pkg-2
 
 MY_PN="LGL"
 
@@ -16,11 +16,12 @@ SRC_URI="mirror://sourceforge/lgl/${MY_PN}-${PV}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
-IUSE=""
+IUSE="java"
 
 RDEPEND="dev-libs/boost"
 DEPEND="${RDEPEND}
-	dev-lang/perl"
+	dev-lang/perl
+	java? ( >=virtual/jdk-1.4 dev-java/jama )"
 
 src_unpack() {
 	unpack "${A}"
@@ -37,11 +38,28 @@ src_prepare() {
 }
 
 src_compile() {
-	cd "${S}"
+	tc-export CC CXX CPP AR RANLIB
+
 	perl setup.pl -i || die
+
+	if use java; then
+		cd Java || die
+
+
+		ejavac -classpath $(java-config --classpath jama):. $(find -name *.java)
+
+		jar cmf ImageMaker/META-INF/MANIFEST.MF imageMaker.jar Viewer2D Jama ImageMaker
+		jar cmf Viewer2D/META-INF/MANIFEST.MF lglview.jar Viewer2D Jama
+	fi
 }
 
 src_install() {
-	cd "${S}"/bin
+	cd bin
 	dobin lglayout2D lglayout3D lglbreakup lglrebuild || die
+
+	if use java; then
+		cd ../Java
+		java-pkg_dojar imageMaker.jar
+		java-pkg_dojar lglview.jar
+	fi
 }
