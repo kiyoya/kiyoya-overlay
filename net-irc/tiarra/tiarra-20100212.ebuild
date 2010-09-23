@@ -9,7 +9,8 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-RDEPEND=">=dev-lang/perl-5.6"
+RDEPEND=">=dev-lang/perl-5.6
+	dev-perl/enum"
 
 src_install() {
 	newbin "${FILESDIR}/tiarra.sh" tiarra || die "newbin failed"
