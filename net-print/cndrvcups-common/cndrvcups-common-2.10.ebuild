@@ -17,7 +17,7 @@ IUSE="-cngplp"
 DEPEND="net-print/cups
 	=x11-libs/gtk+-2*
 	x11-libs/cairo
-	x11-libs/gango"
+	x11-libs/pango"
 
 dir=/usr/$(get_libdir)
 CNGPLP=""
