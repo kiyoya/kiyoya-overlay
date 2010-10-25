@@ -28,13 +28,19 @@ src_compile() {
 }
 
 src_install() {
-	mkdir -p ${ED}/opt/${P}
-	cp -R . ${ED}/opt/${P}
+	mkdir -p ${ED}/opt/${P} || die
+	for d in "bin compiler doc etc examples lib man modules util"; do
+		cp -R ${d} ${ED}/opt/${P} || die
+	done
+
+	dodoc ACKNOWLEDGEMENTS AGREEMENT CHANGES CONTRIBUTORS COPYRIGHT GOALS \
+		LICENSE README README.files STATUS || die
+
 	mkdir -p ${ED}/etc/env.d
 	cat > ${ED}/etc/env.d/99chapel <<EOM
-CHPL_HOME="/opt/${P}"
+CHPL_HOME="${EPREFIX}/opt/${P}"
 CHPL_HOST_PLATFORM="`./util/chplenv/platform`"
-PATH="/opt/${P}/bin/`./util/chplenv/platform`"
-MANPATH="/opt/${P}/man"
+PATH="${EPREFIX}/opt/${P}/bin/`./util/chplenv/platform`"
+MANPATH="${EPREFIX}/opt/${P}/man"
 EOM
 }
