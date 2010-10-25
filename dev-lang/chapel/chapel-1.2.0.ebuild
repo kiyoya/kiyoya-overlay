@@ -28,13 +28,13 @@ src_compile() {
 }
 
 src_install() {
-	mkdir -p ${D}/opt/${P}
-	cp -R . ${D}/opt/${P}
-	mkdir -p ${D}/etc/env.d
-	cat > ${D}/etc/env.d/99chapel <<EOM
+	mkdir -p ${ED}/opt/${P}
+	cp -R . ${ED}/opt/${P}
+	mkdir -p ${ED}/etc/env.d
+	cat > ${ED}/etc/env.d/99chapel <<EOM
 CHPL_HOME="/opt/${P}"
-CHPL_HOST_PLATFORM=\`"\${CHPL_HOME}"/util/chplenv/platform\`
-PATH="\${CHPL_HOME}/bin/\${CHPL_HOST_PLATFORM}"
-MANPATH="\${CHPL_HOME}/man"
+CHPL_HOST_PLATFORM="`./util/chplenv/platform`"
+PATH="/opt/${P}/bin/`./util/chplenv/platform`"
+MANPATH="/opt/${P}/man"
 EOM
 }
