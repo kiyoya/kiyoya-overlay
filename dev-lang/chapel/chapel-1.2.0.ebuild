@@ -33,8 +33,8 @@ src_install() {
 	mkdir -p ${D}/etc/env.d
 	cat > ${D}/etc/env.d/99chapel <<EOM
 CHPL_HOME="/opt/${P}"
-CHPL_HOST_PLATFORM=`"${CHPL_HOME}"/util/chplenv/platform`
-PATH="${CHPL_HOME}/bin/${CHPL_HOST_PLATFORM}"
-MANPATH="${CHPL_HOME}/man"
+CHPL_HOST_PLATFORM=\`"\${CHPL_HOME}"/util/chplenv/platform\`
+PATH="\${CHPL_HOME}/bin/\${CHPL_HOST_PLATFORM}"
+MANPATH="\${CHPL_HOME}/man"
 EOM
 }
