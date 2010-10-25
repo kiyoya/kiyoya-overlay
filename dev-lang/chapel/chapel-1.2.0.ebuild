@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/chapel/${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
-IUSE=""
+IUSE="vim-syntax"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
@@ -29,7 +29,7 @@ src_compile() {
 
 src_install() {
 	mkdir -p ${ED}/opt/${P} || die
-	for d in "bin compiler doc etc examples lib man modules util"; do
+	for d in bin compiler doc examples lib man modules util; do
 		cp -R ${d} ${ED}/opt/${P} || die
 	done
 
@@ -43,4 +43,11 @@ CHPL_HOST_PLATFORM="`./util/chplenv/platform`"
 PATH="${EPREFIX}/opt/${P}/bin/`./util/chplenv/platform`"
 MANPATH="${EPREFIX}/opt/${P}/man"
 EOM
+
+	if use vim-syntax; then
+		mkdir -p ${ED}/usr/share/vim/vimfiles
+		for d in ftdetect indent syntax; do
+			cp -R etc/vim/${d} ${ED}/usr/share/vim/vimfiles
+		done
+	fi
 }
