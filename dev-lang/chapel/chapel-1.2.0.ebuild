@@ -29,7 +29,7 @@ src_compile() {
 
 src_install() {
 	mkdir -p ${ED}/opt/${P} || die
-	for d in bin compiler doc examples lib man modules util; do
+	for d in bin doc examples lib make man modules runtime util; do
 		cp -R ${d} ${ED}/opt/${P} || die
 	done
 
