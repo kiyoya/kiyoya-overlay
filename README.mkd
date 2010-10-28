@@ -15,6 +15,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 * [Eigen3](http://eigen.tuxfamily.org/) : <code>=dev-cpp/eigen3*</code>
 * [JCC](http://pypi.python.org/pypi/JCC/) : <code>dev-python/JCC</code>
 * [Large Graph Layout (LGL)](http://lgl.sourceforge.net/) : <code>sci-visualization/lgl</code>
+* [libLBFGS](http://www.chokkan.org/software/liblbfgs/) : <code>dev-libs/liblbfgs</code>
 * MessagePack bindings
 	* for Ruby (RPC) : <code>dev-ruby/msgpack-rpc</code>
 	* (Unofficial) for Python
