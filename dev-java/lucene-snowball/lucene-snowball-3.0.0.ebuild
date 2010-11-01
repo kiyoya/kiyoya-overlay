@@ -27,7 +27,7 @@ src_compile() {
 src_install() {
 	pushd "${WORKDIR}/${MY_P}/build/contrib/${MY_PN}" || die
 
-	java-pkg_newjar "common/${PN}-${SLOT}-dev.jar" ${PN}-${SLOT}.jar
+	java-pkg_newjar ${PN}-${SLOT}-dev.jar ${PN}-${SLOT}.jar
 
 	use source && java-pkg_dosrc "${S}/src/java/org"
 }
