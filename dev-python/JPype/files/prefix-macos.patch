@@ -1,0 +1,20 @@
+--- setup.py.0	2010-11-05 16:12:10.000000000 +0900
++++ setup.py	2010-11-05 16:13:08.000000000 +0900
+@@ -35,7 +35,9 @@
+         self.extra_compile_args = ['/EHsc']
+     
+     def setupMacOSX(self):
+-        self.javaHome = '/Library/Java/Home'
++        self.javaHome = os.getenv("JAVA_HOME")
++        if self.javaHome is None :
++            self.javaHome = '/Library/Java/Home'
+         self.jdkInclude = ""
+         self.libraries = ["dl"]
+         self.libraryDir = [self.javaHome+"/lib"]
+@@ -99,4 +101,4 @@
+             ext_modules=[jpypeLib]
+         )
+ 
+-JPypeSetup().setup()
+\ No newline at end of file
++JPypeSetup().setup()
