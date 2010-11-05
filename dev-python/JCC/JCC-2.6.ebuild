@@ -22,10 +22,10 @@ DEPEND="${RDEPEND}
 src_compile() {
 	export NO_SHARED="yes"
 	export JCC_JDK=`java-config -O`
-	export JCC_INCLUDES="${JCC_JDK}/include"
-	export JCC_CFLAGS="${CFLAGS}"
-	export JCC_LFLAGS="${LDFLAGS}"
-	export JCC_IMPLIB_LFLAGS="${LDFLAGS}"
+	export JCC_INCLUDES="${JCC_JDK}/include:${JCC_JDK}/include/linux"
+	#export JCC_CFLAGS="${CFLAGS}"
+	#export JCC_LFLAGS="${LDFLAGS}"
+	#export JCC_IMPLIB_LFLAGS="${LDFLAGS}"
 	export JCC_JAVAC="javac"
 	distutils_src_compile
 }
