@@ -25,3 +25,8 @@ src_unpack() {
 	cd "${S}"
 	epatch "${FILESDIR}"/prefix-macos.patch
 }
+
+src_compile() {
+	export JAVA_HOME=`java-config -O`
+	distutils_src_compile
+}
