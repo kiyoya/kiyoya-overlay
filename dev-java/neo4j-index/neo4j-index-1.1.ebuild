@@ -6,35 +6,41 @@ EAPI=3
 
 JAVA_PKG_IUSE="doc source"
 
-inherit base java-pkg-2 java-ant-2
+inherit java-pkg-2 java-ant-2
 
 DESCRIPTION=""
 HOMEPAGE=""
-SRC_URI="http://dist.neo4j.org/${P}-source.zip"
+SRC_URI="http://repo.neo4j.org/org/neo4j/${PN}/${PV}/${P}-sources.jar"
 
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 
-IUSE="python"
+IUSE=""
 
-COMMON_DEP=""
+COMMON_DEP="dev-java/neo4j-kernel
+	dev-java/lucene:2.9"
 
 RDEPEND=">=virtual/jre-1.5
-	dev-java/jta
 	${COMMON_DEP}"
 DEPEND=">=virtual/jdk-1.5
 	app-arch/unzip
-	dev-java/ant
 	${COMMON_DEP}"
-PDEPEND="python? ( dev-python/neo4j )"
 
 EANT_BUILD_TARGET=""
+EANT_GENTOO_CLASSPATH="neo4j-kernel,transaction-api,lucene-2.9"
 EANT_DOC_TARGET=""
 
 src_unpack() {
-	base_src_unpack
+	unpack "${A}"
+	mkdir -p "${S}"/src
+	cd "${WORKDIR}"
+	mv META-INF "${S}"
+	mv org "${S}"/src
 	cp "${FILESDIR}"/build.xml "${S}"
+	cd "${S}"
+
+	java-ant_rewrite-classpath
 }
 
 src_install() {
