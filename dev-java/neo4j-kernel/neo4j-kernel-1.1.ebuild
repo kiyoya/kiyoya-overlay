@@ -16,17 +16,19 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 
-IUSE=""
+IUSE="python"
 
 COMMON_DEP=""
 
 RDEPEND=">=virtual/jre-1.5
 	dev-java/jta
+	java-virtuals/transaction-api
 	${COMMON_DEP}"
 DEPEND=">=virtual/jdk-1.5
 	app-arch/unzip
 	dev-java/ant
 	${COMMON_DEP}"
+PDEPEND="python? ( dev-python/neo4j )"
 
 EANT_BUILD_TARGET=""
 EANT_DOC_TARGET=""
