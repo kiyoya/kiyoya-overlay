@@ -24,6 +24,7 @@ src_unpack() {
 	unpack "${A}"
 	cd "${S}"
 	epatch "${FILESDIR}"/prefix-macos.patch
+	epatch "${FILESDIR}"/fix-sets.patch
 }
 
 src_compile() {

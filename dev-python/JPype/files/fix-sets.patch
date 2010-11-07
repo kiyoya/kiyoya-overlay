@@ -1,0 +1,13 @@
+--- src/python/jpype/_pykeywords.py.0	2010-11-07 21:26:28.024587359 +0900
++++ src/python/jpype/_pykeywords.py	2010-11-07 21:27:26.915212427 +0900
+@@ -15,9 +15,7 @@
+ #   
+ #*****************************************************************************
+ 
+-import sets
+-
+-KEYWORDS = sets.Set( (
++KEYWORDS = frozenset( (
+     "del", "for", "is", "raise",
+     "assert", "elif", "from", "lambda", "return",   
+     "break", "else", "global", "not", "try",
