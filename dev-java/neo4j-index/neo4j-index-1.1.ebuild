@@ -19,6 +19,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE=""
 
 COMMON_DEP="dev-java/neo4j-kernel
+	dev-java/jta
 	dev-java/lucene:2.9"
 
 RDEPEND=">=virtual/jre-1.5
@@ -28,7 +29,7 @@ DEPEND=">=virtual/jdk-1.5
 	${COMMON_DEP}"
 
 EANT_BUILD_TARGET=""
-EANT_GENTOO_CLASSPATH="neo4j-kernel,lucene-2.9"
+EANT_GENTOO_CLASSPATH="neo4j-kernel,jta,lucene-2.9"
 EANT_DOC_TARGET=""
 
 src_unpack() {
