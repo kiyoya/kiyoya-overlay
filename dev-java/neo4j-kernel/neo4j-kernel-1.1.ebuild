@@ -10,7 +10,7 @@ inherit base java-pkg-2 java-ant-2
 
 DESCRIPTION=""
 HOMEPAGE=""
-SRC_URI="http://dist.neo4j.org/${P}-source.zip"
+SRC_URI="http://repo.neo4j.org/org/neo4j/${PN}/${PV}/${P}-sources.jar"
 
 LICENSE="AGPL-3"
 SLOT="0"
@@ -22,7 +22,6 @@ COMMON_DEP=""
 
 RDEPEND=">=virtual/jre-1.5
 	dev-java/jta
-	java-virtuals/transaction-api
 	${COMMON_DEP}"
 DEPEND=">=virtual/jdk-1.5
 	app-arch/unzip
@@ -31,11 +30,19 @@ DEPEND=">=virtual/jdk-1.5
 PDEPEND="python? ( dev-python/neo4j )"
 
 EANT_BUILD_TARGET=""
+EANT_GENTOO_CLASSPATH="jta"
 EANT_DOC_TARGET=""
 
 src_unpack() {
-	base_src_unpack
+	unpack "${A}"
+	mkdir -p "${S}"/src
+	cd "${WORKDIR}"
+	mv META-INF "${S}"
+	mv org "${S}"/src
 	cp "${FILESDIR}"/build.xml "${S}"
+	cd "${S}"
+
+	java-ant_rewrite-classpath
 }
 
 src_install() {
