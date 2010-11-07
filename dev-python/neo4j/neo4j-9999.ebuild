@@ -19,7 +19,16 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE=""
 
-DEPEND="|| ( dev-python/JCC dev-python/JPype )"
-RDEPEND="${DEPEND}
-	dev-java/neo4j-kernel"
+DEPEND="|| ( dev-python/JCC dev-python/JPype )
+	dev-java/neo4j-kernel
+	dev-java/neo4j-index
+	dev-java/neo4j-commons
+	dev-java/neo4j-remote-graphdb
+	dev-java/junit"
+RDEPEND="${DEPEND}"
 
+src_unpack() {
+	subversion_src_unpack
+	cd "${S}"
+	epatch "${FILESDIR}"/setup.py.patch
+}
