@@ -32,3 +32,21 @@ src_unpack() {
 	cd "${S}"
 	epatch "${FILESDIR}"/setup.py.patch
 }
+
+src_install() {
+	distutils_src_install
+
+	IFS_SAVE="$IFS"
+	IFS=:
+
+	local pylibdir classdir
+	for pylibdir in "${ED}"usr/$(get_libdir)/python*; do
+		classdir=${pylibdir}/site-packages/neo4j/classes
+		mkdir -p ${classdir}
+		for f in `java-config -d -p neo4j-kernel,neo4j-index,neo4j-commons,neo4j-remote-graphdb`; do
+			ln -s ${f} ${classdir}/$(basename ${f})
+		done
+	done
+
+	IFS="$IFS_SAVE"
+}
