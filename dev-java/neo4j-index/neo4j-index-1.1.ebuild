@@ -28,7 +28,7 @@ DEPEND=">=virtual/jdk-1.5
 	${COMMON_DEP}"
 
 EANT_BUILD_TARGET=""
-EANT_GENTOO_CLASSPATH="neo4j-kernel,transaction-api,lucene-2.9"
+EANT_GENTOO_CLASSPATH="neo4j-kernel,lucene-2.9"
 EANT_DOC_TARGET=""
 
 src_unpack() {
