@@ -1,0 +1,55 @@
+--- fastcommunity_mh.cc.0	2010-11-23 02:37:22.000000000 +0900
++++ fastcommunity_mh.cc	2010-11-23 02:37:49.000000000 +0900
+@@ -71,9 +71,10 @@
+ //
+ ////////////////////////////////////////////////////////////////////////
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include <fstream>
+ #include <string>
++#include <string.h>
+ #include "stdlib.h"
+ #include "time.h"
+ #include "math.h"
+@@ -252,7 +253,7 @@
+ 	// Parse the command line, build filenames and then import the .pairs file
+ 	cout << "\nFast Community Inference.\n";
+ 	cout << "Copyright (c) 2004 by Aaron Clauset (aaron@cs.unm.edu)\n";
+-	if (parseCommandLine(argc, argv)) {} else { return 0; }
++	if (parseCommandLine(argc, argv)) {} else { return 1; }
+ 	cout << "\nimporting: " << ioparm.filename << endl;    // note the input filename
+ 	buildFilenames();								// builds filename strings
+ 	readInputFile();								// gets adjacency matrix data
+@@ -372,7 +373,7 @@
+ 	fout.close();
+ 
+ 	cout << "exited safely" << endl;
+-	return 1;
++	return 0;
+ }
+ 
+ 
+--- maxheap.h.0	2010-11-23 02:37:24.000000000 +0900
++++ maxheap.h	2010-11-23 02:37:36.000000000 +0900
+@@ -40,7 +40,8 @@
+ #if !defined(MAXHEAP_INCLUDED)
+ #define MAXHEAP_INCLUDED
+ 
+-#include <iostream.h>
++#include <iostream>
++using namespace std;
+ 
+ /*   Because using this heap requires us to be able to modify an arbitrary element's
+ 	data in constant O(1) time, I use to tricky tactic of having elements in an array-
+--- vektor.h.0	2010-11-23 02:37:27.000000000 +0900
++++ vektor.h	2010-11-23 02:37:36.000000000 +0900
+@@ -30,7 +30,7 @@
+ #if !defined(vektor_INCLUDED)
+ #define vektor_INCLUDED
+ 
+-#include <iostream.h>
++#include <iostream>
+ 
+ #if !defined(vektor_INCLUDED)
+ #define vektor_INCLUDED
