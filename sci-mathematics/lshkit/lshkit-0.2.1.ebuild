@@ -15,7 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~x64-macos ~x86-macos ~amd64-linux ~x86-linux"
 IUSE="test"
 
-DEPEND=""
+DEPEND="sci-libs/gsl
+	dev-libs/boost"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
