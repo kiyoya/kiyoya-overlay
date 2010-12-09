@@ -1,0 +1,14 @@
+--- src/kdtree.c.0	2010-12-09 22:59:48.000000000 +0900
++++ src/kdtree.c	2010-12-09 23:00:09.000000000 +0900
+@@ -1,6 +1,11 @@
+ #include <stdio.h>
+ #include <stdlib.h>
++#ifdef __APPLE__
++#include <float.h>
++#define MAXFLOAT FLT_MAX
++#else
+ #include <values.h>
++#endif
+ #include <math.h>
+ #include <assert.h>
+ #include "kdtree.h"

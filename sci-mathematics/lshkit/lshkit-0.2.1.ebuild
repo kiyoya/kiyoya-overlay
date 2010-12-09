@@ -21,6 +21,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-cmake.patch
+	epatch "${FILESDIR}"/${P}-macos.patch
 }
 
 src_install() {
