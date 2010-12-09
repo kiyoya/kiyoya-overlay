@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~x64-macos ~x86-macos ~amd64-linux ~x86-linux"
-IUSE=""
+IUSE="test"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
@@ -23,7 +23,9 @@ src_prepare() {
 }
 
 src_install() {
-	dobin "${CMAKE_BUILD_DIR}"/bin/* || die
+	if use test; then
+		dobin "${CMAKE_BUILD_DIR}"/bin/* || die
+	fi
 	dolib.a "${CMAKE_BUILD_DIR}"/lib/liblshkit.a || die
 	dodoc INSTALL NEWS README
 
