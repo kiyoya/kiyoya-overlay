@@ -4,7 +4,7 @@
 
 EAPI=3
 
-inherit distutils
+inherit distutils eutils
 
 DESCRIPTION="a complete python wrapper for the Tokyo Cabinet library"
 HOMEPAGE="http://pypi.python.org/pypi/tokyocabinet"
@@ -18,3 +18,7 @@ IUSE=""
 RDEPEND="dev-db/tokyocabinet"
 DEPEND="${RDEPEND}
 	dev-python/setuptools"
+
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-Py_ssize_t.patch
+}
