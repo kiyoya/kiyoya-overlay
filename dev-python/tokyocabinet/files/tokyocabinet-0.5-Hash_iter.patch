@@ -1,0 +1,55 @@
+--- tokyocabinet/hash.c.0	2010-12-12 08:25:10.480200724 +0900
++++ tokyocabinet/hash.c	2010-12-12 08:35:34.580221270 +0900
+@@ -405,6 +405,41 @@
+ 
+ 
+ static PyObject *
++Hash_iter(Hash *self)
++{
++    bool result;
++    Py_BEGIN_ALLOW_THREADS
++    result = tchdbiterinit(self->db);
++    Py_END_ALLOW_THREADS
++    if(!result){
++        return NULL;
++    }
++    Py_INCREF(self);
++    return (PyObject*)self;
++}
++
++
++static PyObject *
++Hash_iternext(Hash *self)
++{
++    const char *key;
++    PyObject *pykey;
++
++    key = tchdbiternext2(self->db);
++    if (!key) {
++        if (tchdbecode(self->db) == TCENOREC) {
++            PyErr_SetNone(PyExc_StopIteration);
++            return NULL;
++        }
++        return NULL;
++    }
++    pykey = PyString_FromString(key);
++    tcfree((void *)key);
++    return pykey;
++}
++
++
++static PyObject *
+ Hash_fwmkeys(Hash *self, PyObject *args, PyObject *kwargs)
+ {
+     char *pbuf;
+@@ -1025,8 +1060,8 @@
+   0,                                           /* tp_clear */
+   0,                                           /* tp_richcompare */
+   0,                                           /* tp_weaklistoffset */
+-  0,                                           /* tp_iter */
+-  0,                                           /* tp_iternext */
++  (getiterfunc)Hash_iter,                      /* tp_iter */
++  (iternextfunc)Hash_iternext,                 /* tp_iternext */
+   Hash_methods,                               /* tp_methods */
+   0,                                           /* tp_members */
+   0,                                           /* tp_getset */

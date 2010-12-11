@@ -21,4 +21,5 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-Py_ssize_t.patch
+	epatch "${FILESDIR}"/${P}-Hash_iter.patch
 }
