@@ -19,6 +19,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 * [JPype](http://jpype.sourceforge.net/) : <code>dev-python/JPype</code>
 * [Large Graph Layout (LGL)](http://lgl.sourceforge.net/) : <code>sci-visualization/lgl</code>
 * [lda](http://chasen.org/~daiti-m/dist/lda/) : <code>sci-mathematics/lda</code>
+* [lda-c](http://www.cs.princeton.edu/~blei/lda-c/) : <code>sci-mathematics/lda-c</code>
 * [lshkit](http://lshkit.sourceforge.net/) : <code>sci-mathematics/lshkit</code>
 * [libLBFGS](http://www.chokkan.org/software/liblbfgs/) : <code>dev-libs/liblbfgs</code>
 * MessagePack bindings
