@@ -8,7 +8,7 @@ inherit toolchain-funcs
 
 DESCRIPTION="a Latent Dirichlet Allocation Package"
 HOMEPAGE="http://chasen.org/~daiti-m/dist/lda/"
-SRC_URI="http://chasen.org/~daiti-m/dist/lda/lda-0.1.tar.gz"
+SRC_URI="http://chasen.org/~daiti-m/dist/lda/${P}.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -32,5 +32,5 @@ src_compile() {
 
 src_install() {
 	dobin lda || die
-	dodoc AUTHOR README || die
+	dodoc AUTHOR README train || die
 }
