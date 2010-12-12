@@ -1,0 +1,10 @@
+--- main.cpp.0	2010-12-12 09:35:04.860200767 +0900
++++ main.cpp	2010-12-12 09:36:01.581461667 +0900
+@@ -29,6 +29,7 @@
+ #include <iostream>
+ #include <unistd.h>
+ #include <stdexcept>
++#include <stdlib.h>
+ 
+ #ifdef HAVE_GETOPT_H
+ #include <getopt.h>

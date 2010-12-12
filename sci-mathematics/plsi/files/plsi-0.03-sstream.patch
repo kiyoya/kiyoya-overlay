@@ -1,0 +1,71 @@
+--- matrix.cpp.0	2010-12-12 09:41:03.500211421 +0900
++++ matrix.cpp	2010-12-12 09:43:41.810200941 +0900
+@@ -29,7 +29,7 @@
+ #include <stdlib.h>
+ #include <stdexcept>
+ #include <fstream>
+-#include <strstream>
++#include <sstream>
+ 
+ namespace PLSI
+ {
+@@ -102,8 +102,8 @@
+       for (unsigned int i = 0; i < col; i++) {
+ 	if (tmp[i] == 0) {
+ 	  delete [] tmp;
+-	  std::strstream ss;
+-	  ss << "empty feature index (" << i << ") is found " << '\0';
++	  std::ostringstream ss;
++	  ss << "empty feature index (" << i << ") is found ";
+ 	  throw std::runtime_error (ss.str());
+ 	}
+       }
+@@ -115,8 +115,8 @@
+ 
+     catch (std::exception &e) {
+       clear ();
+-      std::strstream ss;
+-      ss << "Matrix::read(): " << e.what() << " [" << filename << "]" << '\0';
++      std::ostringstream ss;
++      ss << "Matrix::read(): " << e.what() << " [" << filename << "]";
+       throw std::runtime_error (ss.str());
+       return false;
+     }
+--- plsi.cpp.0	2010-12-12 09:43:50.610200511 +0900
++++ plsi.cpp	2010-12-12 09:44:29.390210869 +0900
+@@ -32,7 +32,7 @@
+ #include <iostream>
+ #include <string>
+ #include <stdexcept>
+-#include <strstream>
++#include <sstream>
+ #include <numeric>
+ #include <algorithm>
+ 
+@@ -44,7 +44,7 @@
+ {
+   void throw_error (const char *filename, const char *message)
+   {
+-    std::strstream ss;
++    std::ostringstream ss;
+     ss << message << " [" << filename << "]";
+     throw std::runtime_error (ss.str());
+   }
+@@ -117,7 +117,7 @@
+     std::string line;
+     unsigned int i = 0;
+     while (i < z && std::getline (is, line)) {
+-      std::istrstream istrs ((char *)line.c_str());
++      std::istringstream istrs ((char *)line.c_str());
+       unsigned int j = 0;
+       while (j < r && istrs >> d[++j][i]);
+       if (j != r) throw_error (filename, "read_vector(): # colum is invalid");
+@@ -134,7 +134,7 @@
+     std::string line;
+     unsigned int j = 0;
+     if (! std::getline (is, line)) throw_error (filename, "read_vector(): # row is invalid");
+-    std::istrstream istrs ((char *)line.c_str());
++    std::istringstream istrs ((char *)line.c_str());
+     while (j < r && istrs >> d[++j]);
+     if (j != r) throw_error (filename, "read_vector(): # colum is invalid");
+     is.close();
