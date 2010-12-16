@@ -1,0 +1,10 @@
+--- common.h.0	2010-12-16 17:52:06.460200813 +0900
++++ common.h	2010-12-16 17:52:58.751461279 +0900
+@@ -16,6 +16,7 @@
+ #define _OPENSOURCE_GLDA_COMMON_H__
+ 
+ #include <stdlib.h>
++#include <string.h>
+ 
+ #include <iostream>
+ #include <list>

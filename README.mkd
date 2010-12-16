@@ -27,6 +27,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 	* (Unofficial) for Python
 		* [msgpack-python](http://pypi.python.org/pypi/msgpack-python) : <code>dev-python/msgpack-python</code>
 * [neo4j](http://neo4j.org) : <code>dev-java/neo4j-kernel</code>, <code>dev-java/neo4j-index</code>
+* [plda](http://code.google.com/p/plda/) : <code>sci-mathematics/plda</code>
 * [plsi](http://chasen.org/~taku/software/plsi/) : <code>sci-mathematics/plsi</code>
 * [redsvd](http://code.google.com/p/redsvd/) : <code>dev-cpp/redsvd</code>
 * [South](http://pypi.python.org/pypi/South) : <code>dev-python/South</code>
