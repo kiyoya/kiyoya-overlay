@@ -12,7 +12,7 @@ SRC_URI="http://plda.googlecode.com/files/plda-3.0.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE=""
 
 DEPEND=""
