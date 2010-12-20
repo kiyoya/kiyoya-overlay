@@ -23,7 +23,7 @@ REDSVD_TESTS="accuracy_test performance_test"
 src_configure() {
 	tc-export CC CXX CPP AR RANLIB
 	./waf configure \
-		--prefix=/usr \
+		--prefix=${EPREFIX}/usr \
 		|| die
 }
 
