@@ -2,20 +2,38 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit java-pkg-2 java-ant-2
+
 EAPI=3
 
-DESCRIPTION="PyLucene is a Python extension for accessing Java Lucene. Its goal
-is to allow you to use Lucene's text indexing and searching capabilities from
-Python. It is API compatible with the latest version of Java Lucene, version
-3.0.2 as of July 2nd, 2010."
+MY_PV="3.0.2-1"
+
+DESCRIPTION="PyLucene is a Python extension for accessing Java Lucene."
 HOMEPAGE="http://lucene.apache.org/pylucene"
-SRC_URI="http://ftp.riken.jp/net/apache//lucene/pylucene/pylucene-3.0.2-1-src.tar.gz"
+SRC_URI="mirror://apache/lucene/java/${PN}-${MY_PV}-src.tar.gz"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE=""
 
-DEPEND=""
+DEPEND="dev-python/setuptools
+	dev-python/JCC
+	>=virtual/jdk-1.4
+	dev-java/lucene
+	dev-java/lucene-analyzers
+	dev-java/lucene-snowball
+	dev-java/lucene-highlighter
+	dev-java/lucene-regex
+	dev-java/lucene-queries
+	dev-java/lucene-instantiated
+	dev-java/ant-core
+	dev-java/ant-python"
+
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}/${PN}-${MY_PV}"
+
+src_compile() {
+	emake JCC="python -m jcc" PREFIX_PYTHON="${EPREFIX}/usr" ANT=ant || die
+}
