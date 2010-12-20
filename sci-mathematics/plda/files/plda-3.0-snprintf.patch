@@ -1,0 +1,10 @@
+--- document.cc.0	2010-12-20 22:06:52.090200779 +0900
++++ document.cc	2010-12-20 22:07:00.300200884 +0900
+@@ -13,6 +13,7 @@
+ // limitations under the License.
+ 
+ #include "document.h"
++#include <stdio.h>
+ 
+ namespace learning_lda {
+ 
