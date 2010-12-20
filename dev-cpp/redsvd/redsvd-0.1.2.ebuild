@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE=""
 
-DEPEND="=dev-cpp/eigen-3.0_beta1"
+DEPEND="=dev-cpp/eigen-3*"
 RDEPEND="${DEPEND}"
 
 REDSVD_TESTS="accuracy_test performance_test"
