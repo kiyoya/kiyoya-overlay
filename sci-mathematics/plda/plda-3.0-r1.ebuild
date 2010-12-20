@@ -13,7 +13,7 @@ SRC_URI="http://plda.googlecode.com/files/plda-3.0.tar.gz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
-IUSE=""
+IUSE="mpi"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
@@ -27,6 +27,7 @@ src_prepare() {
 	sed -i \
 		-e "s:CC=g++:CC=$(tc-getCXX):" \
 		-e "s:CFLAGS=-O3 -Wall -Wno-sign-compare:CFLAGS=${CXXFLAGS}:" \
+		-e "s:MPICC=mpicxx:MPICC=mpic++:" \
 		Makefile || die
 }
 
@@ -34,9 +35,16 @@ src_compile() {
 	emake lda infer || die
 	cp lda plda-train || die
 	cp infer plda-infer  || die
+	if use mpi; then
+		emake mpi_lda || die
+		cp mpi_lda plda-mpi-train || die
+	fi
 }
 
 src_install() {
 	dobin plda-train plda-infer || die
+	if use mpi; then
+		dobin plda-mpi-train
+	fi
 	dodoc README INSTALL || die
 }
