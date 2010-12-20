@@ -1,0 +1,43 @@
+--- tokyocabinet/table.c.0	2010-12-21 00:45:47.033714511 +0900
++++ tokyocabinet/table.c	2010-12-21 00:48:53.163832357 +0900
+@@ -301,6 +301,18 @@
+ 
+ 
+ static PyObject *
++TableQuery_hint(TableQuery *self)
++{
++    const char *hint;
++    
++    Py_BEGIN_ALLOW_THREADS
++    hint = tctdbqryhint(self->q);
++    Py_END_ALLOW_THREADS
++    
++    return PyString_FromString(hint);
++}
++
++static PyObject *
+ TableQuery_count(TableQuery *self)
+ {
+     TCLIST *results;
+@@ -355,6 +367,12 @@
+     },
+     
+     {
++        "hint", (PyCFunction) TableQuery_hint,
++        METH_NOARGS,
++        "Get the hint for a query."
++    },
++    
++    {
+         "count", (PyCFunction) TableQuery_count,
+         METH_NOARGS,
+         "Get a count of matching records."
+@@ -1212,6 +1230,8 @@
+     results = tctdbmetasearch(queries, n, type);
+     Py_END_ALLOW_THREADS
+     
++    free(queries);
++    
+     if (!results)
+     {
+         PyErr_SetString(PyExc_MemoryError, "Cannot allocate memory for TCLIST object");

@@ -1,0 +1,157 @@
+--- tokyocabinet/btree.c.0	2010-12-21 00:50:31.162838354 +0900
++++ tokyocabinet/btree.c	2010-12-21 00:51:56.515121017 +0900
+@@ -1417,8 +1417,9 @@
+ {
+     char *kbuf, *vbuf;
+     Py_ssize_t ksiz;
+-    int vsiz;
++    Py_ssize_t vsiz;
+     PyObject *value;
++    int tcvsiz;
+     
+     if (!PyString_Check(key))
+     {
+@@ -1434,8 +1435,9 @@
+     }
+     
+     Py_BEGIN_ALLOW_THREADS
+-    vbuf = tcbdbget(self->db, kbuf, (int) ksiz, &vsiz);
++    vbuf = tcbdbget(self->db, kbuf, (int) ksiz, &tcvsiz);
+     Py_END_ALLOW_THREADS
++    vsiz = tcvsiz;
+     
+     if (!vbuf)
+     {
+@@ -1513,7 +1515,7 @@
+ {
+     char *kbuf;
+     Py_ssize_t ksiz;
+-    int vsiz;
++    Py_ssize_t vsiz;
+     
+     if (!PyString_Check(value))
+     {
+--- tokyocabinet/hash.c.0	2010-12-21 00:52:01.403588601 +0900
++++ tokyocabinet/hash.c	2010-12-21 00:52:43.713282247 +0900
+@@ -709,8 +709,9 @@
+ {
+     char *kbuf, *vbuf;
+     Py_ssize_t ksiz;
+-    int vsiz;
++    Py_ssize_t vsiz;
+     PyObject *value;
++    int tcvsiz;
+     
+     if (!PyString_Check(key))
+     {
+@@ -726,8 +727,9 @@
+     }
+     
+     Py_BEGIN_ALLOW_THREADS
+-    vbuf = tchdbget(self->db, kbuf, (int) ksiz, &vsiz);
++    vbuf = tchdbget(self->db, kbuf, (int) ksiz, &tcvsiz);
+     Py_END_ALLOW_THREADS
++    vsiz = tcvsiz;
+     
+     if (!vbuf)
+     {
+@@ -805,7 +807,7 @@
+ {
+     char *kbuf;
+     Py_ssize_t ksiz;
+-    int vsiz;
++    Py_ssize_t vsiz;
+     
+     if (!PyString_Check(value))
+     {
+--- tokyocabinet/table.c.0	2010-12-21 00:52:52.713838457 +0900
++++ tokyocabinet/table.c	2010-12-21 00:56:57.111582456 +0900
+@@ -68,7 +68,7 @@
+     }
+     
+     PyObject *key, *value;
+-    int pos = 0;
++    Py_ssize_t pos = 0;
+     const char *kstr, *vstr;
+     TCMAP *map;
+     
+@@ -825,6 +825,41 @@
+ 
+ 
+ static PyObject *
++Table_iter(Table *self)
++{
++    bool result;
++    Py_BEGIN_ALLOW_THREADS
++    result = tctdbiterinit(self->db);
++    Py_END_ALLOW_THREADS
++    if(!result){
++         return NULL;
++    }
++    Py_INCREF(self);
++    return (PyObject*)self;
++}
++
++
++static PyObject *
++Table_iternext(Table *self)
++{
++    const char *key;
++    PyObject *pykey;
++
++    key = tctdbiternext2(self->db);
++    if (!key) {
++        if (tctdbecode(self->db) == TCENOREC) {
++            PyErr_SetNone(PyExc_StopIteration);
++            return NULL;
++        }
++        return NULL;
++    }
++    pykey = PyString_FromString(key);
++    tcfree((void *)key);
++    return pykey;
++}
++
++
++static PyObject *
+ Table_fwmkeys(Table *self, PyObject *args, PyObject *kwargs)
+ {
+     char *pbuf;
+@@ -1275,7 +1310,7 @@
+ Table_subscript(Table *self, PyObject *key)
+ {
+     char *kbuf;
+-    int ksiz;
++    Py_ssize_t ksiz;
+     TCMAP *cols;
+     PyObject *value;
+     
+@@ -1312,7 +1347,7 @@
+ {
+     bool success;
+     char *kbuf;
+-    int ksiz;
++    Py_ssize_t ksiz;
+     TCMAP *cols;
+     
+     if (!PyString_Check(key))
+@@ -1358,7 +1393,7 @@
+ {
+     char *kbuf;
+     Py_ssize_t ksiz;
+-    int vsiz;
++    Py_ssize_t vsiz;
+     
+     if (!PyString_Check(value))
+     {
+@@ -1608,8 +1643,8 @@
+   0,                                           /* tp_clear */
+   0,                                           /* tp_richcompare */
+   0,                                           /* tp_weaklistoffset */
+-  0,                                           /* tp_iter */
+-  0,                                           /* tp_iternext */
++  (getiterfunc)Table_iter,                     /* tp_iter */
++  (iternextfunc)Table_iternext,                /* tp_iternext */
+   Table_methods,                               /* tp_methods */
+   0,                                           /* tp_members */
+   0,                                           /* tp_getset */
