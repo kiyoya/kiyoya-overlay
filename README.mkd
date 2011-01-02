@@ -23,6 +23,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 * [lda-c](http://www.cs.princeton.edu/~blei/lda-c/) : <code>sci-mathematics/lda-c</code>
 * [lshkit](http://lshkit.sourceforge.net/) : <code>sci-mathematics/lshkit</code>
 * [libLBFGS](http://www.chokkan.org/software/liblbfgs/) : <code>dev-libs/liblbfgs</code>
+* [Mallet](http://mallet.cs.umass.edu/) : <code>dev-java/mallet</code>
 * MessagePack bindings
 	* for Ruby (RPC) : <code>dev-ruby/msgpack-rpc</code>
 	* (Unofficial) for Python
