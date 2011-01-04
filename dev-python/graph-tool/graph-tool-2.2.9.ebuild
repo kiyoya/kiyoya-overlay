@@ -12,7 +12,7 @@ HOMEPAGE="http://graph-tool.skewed.de/"
 LICENSE="GPL-3"
 
 SLOT="0"
-IUSE="openmp"
+IUSE="graphviz openmp"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 
 DEPEND=">=sys-devel/gcc-4.4
@@ -22,8 +22,8 @@ DEPEND=">=sys-devel/gcc-4.4
 	sci-mathematics/cgal"
 
 RDEPEND="${CDEPEND}
-	media-gfx/graphviz[python]
-	dev-python/matplotlib"
+	graphviz? ( media-gfx/graphviz[python] )
+	matplotlib? ( dev-python/matplotlib )"
 
 DOCS="README NEWS COPYING Changelog"
 
