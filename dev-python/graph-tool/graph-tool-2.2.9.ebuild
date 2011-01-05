@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 
 DEPEND=">=sys-devel/gcc-4.4
 	>=dev-lang/python-2.5
-	>=dev-libs/boost-1.42
+	>=dev-libs/boost-1.42[python]
 	sci-libs/scipy
 	>=dev-python/numpy-1.5
 	sci-mathematics/cgal"
