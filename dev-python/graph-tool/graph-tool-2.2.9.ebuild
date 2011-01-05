@@ -31,9 +31,13 @@ DOCS="README NEWS COPYING Changelog"
 MAKEOPTS="-j1" 
 
 src_configure() {
-	econf $(use_enable openmp)
+	econf $(use_enable openmp) || die
 }
 
 src_compile() {
 	emake || die
+}
+
+src_install() {
+	emake DESTDIR="${D}" install || die
 }
