@@ -12,7 +12,7 @@ HOMEPAGE="http://graph-tool.skewed.de/"
 LICENSE="GPL-3"
 
 SLOT="0"
-IUSE="graphviz openmp"
+IUSE="graphviz matplotlib openmp"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 
 DEPEND=">=sys-devel/gcc-4.4
