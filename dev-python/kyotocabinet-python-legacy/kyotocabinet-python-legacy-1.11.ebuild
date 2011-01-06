@@ -9,7 +9,7 @@ RESTRICT_PYTHON_ABIS="3.*"
 
 inherit distutils eutils
 
-DESCRIPTION="Python 3.x Binding of Kyoto Cabinet"
+DESCRIPTION="Python 2.x Binding of Kyoto Cabinet"
 HOMEPAGE="http://fallabs.com/kyotocabinet/pythonlegacydoc/"
 SRC_URI="http://fallabs.com/kyotocabinet/pythonlegacypkg/${P}.tar.gz"
 
