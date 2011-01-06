@@ -23,4 +23,5 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-Table_hint.patch
 	epatch "${FILESDIR}"/${P}-Table_iter.patch
 	epatch "${FILESDIR}"/${P}-Hash_iter.patch
+	epatch "${FILESDIR}"/${P}-tp_init.patch
 }

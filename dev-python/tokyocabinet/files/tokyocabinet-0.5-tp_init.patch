@@ -1,0 +1,159 @@
+--- tokyocabinet/btree.c.0	2011-01-06 15:04:06.000000000 +0900
++++ tokyocabinet/btree.c	2011-01-06 15:08:12.000000000 +0900
+@@ -66,23 +66,18 @@
+ }
+ 
+ 
+-static PyObject *
+-BTreeCursor_new(PyTypeObject *type, PyObject *args, PyObject *kwargs)
++static int
++BTreeCursor_init(BTreeCursor *self, PyObject *args, PyObject *kwargs)
+ {
+-    BTreeCursor *self;
+     BTree *pydb;
+-    
+-    self = (BTreeCursor *) type->tp_alloc(type, 0);
+-    if (!self)
+-    {
+-        PyErr_SetString(PyExc_MemoryError, "Cannot allocate BTreeCursor instance.");
+-        return NULL;
+-    }
+-    
++	  PyObject *temp_pydb;
++
+     if (PyArg_ParseTuple(args, "O!", &BTreeType, &pydb))
+     {
++			  temp_pydb = self->pydb;
+         Py_INCREF(pydb);
+         self->pydb = pydb;
++				Py_DECREF(temp_pydb);
+         
+         self->cur = tcbdbcurnew(self->pydb->db);
+         if (!self->cur)
+@@ -91,12 +86,27 @@
+         }
+         else
+         {
+-            return (PyObject *) self;
++					  return 0;
+         }
+     }
+     
+-    BTreeCursor_dealloc(self);
+-    return NULL;
++		return -1;
++}
++
++
++static PyObject *
++BTreeCursor_new(PyTypeObject *type, PyObject *args, PyObject *kwargs)
++{
++    BTreeCursor *self;
++    
++    self = (BTreeCursor *) type->tp_alloc(type, 0);
++    if (!self)
++    {
++        PyErr_SetString(PyExc_MemoryError, "Cannot allocate BTreeCursor instance.");
++        return NULL;
++    }
++
++		return (PyObject *) self;
+ }
+ 
+ 
+@@ -435,7 +445,7 @@
+   0,                                           /* tp_descr_get */
+   0,                                           /* tp_descr_set */
+   0,                                           /* tp_dictoffset */
+-  0,                                           /* tp_init */
++  BTreeCursor_init,                            /* tp_init */
+   0,                                           /* tp_alloc */
+   BTreeCursor_new,                             /* tp_new */
+ };
+--- tokyocabinet/hash.c.0	2011-01-06 14:58:10.000000000 +0900
++++ tokyocabinet/hash.c	2011-01-06 15:03:59.000000000 +0900
+@@ -55,25 +55,9 @@
+ }
+ 
+ 
+-static PyObject *
+-Hash_new(PyTypeObject *type, PyObject *args, PyObject *kwargs)
++static int
++Hash_init(Hash *self, PyObject *args, PyObject *kwargs)
+ {
+-    Hash *self;
+-    
+-    self = (Hash *) type->tp_alloc(type, 0);
+-    if (!self)
+-    {
+-        PyErr_SetString(PyExc_MemoryError, "Cannot allocate Hash instance.");
+-        return NULL;
+-    }
+-    
+-    self->db = tchdbnew();
+-    if (!self->db)
+-    {
+-        PyErr_SetString(PyExc_MemoryError, "Cannot allocate TCHDB instance.");
+-        return NULL;
+-    }
+-    
+     int omode = HDBOWRITER | HDBOCREAT;
+     char *path = NULL;
+     static char *kwlist[] = { "path", "omode", NULL };
+@@ -86,20 +70,38 @@
+             Py_BEGIN_ALLOW_THREADS
+             success = tchdbopen(self->db, path, omode);
+             Py_END_ALLOW_THREADS
+-            if (success)
++            if (!success)
+             {
+-                return (PyObject *) self;
++                raise_hash_error(self->db);
++                return -1;
+             }
+-            raise_hash_error(self->db);
+-        }
+-        else
+-        {
+-            return (PyObject *) self;
+         }
+     }
++   
++    return 0;
++}
++
++
++static PyObject *
++Hash_new(PyTypeObject *type, PyObject *args, PyObject *kwargs)
++{
++    Hash *self;
+     
+-    Hash_dealloc(self);
+-    return NULL;
++    self = (Hash *) type->tp_alloc(type, 0);
++    if (!self)
++    {
++        PyErr_SetString(PyExc_MemoryError, "Cannot allocate Hash instance.");
++        return NULL;
++    }
++    
++    self->db = tchdbnew();
++    if (!self->db)
++    {
++        PyErr_SetString(PyExc_MemoryError, "Cannot allocate TCHDB instance.");
++        return NULL;
++    }
++ 
++    return (PyObject *) self;
+ }
+ 
+ 
+@@ -1072,7 +1074,7 @@
+   0,                                           /* tp_descr_get */
+   0,                                           /* tp_descr_set */
+   0,                                           /* tp_dictoffset */
+-  0,                                           /* tp_init */
++  Hash_init,                                   /* tp_init */
+   0,                                           /* tp_alloc */
+   Hash_new,                                   /* tp_new */
+ };
