@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE=""
 
-RDEPEND="dev-db/kyotocabinet"
+RDEPEND=">=dev-db/kyotocabinet-1.2.31"
 DEPEND="${RDEPEND}
 	dev-python/setuptools"
 
