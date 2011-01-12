@@ -17,8 +17,9 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 
 src_install() {
-	dodir /opt/${P}
-	cp -R "${S}/" "${D}/opt/" || die
+	dodir /opt/
+	cp -R "${S}" "${ED}/opt" || die
+
 	dodir /usr/bin
-	ln -s /opt/${PR}/gxpc "${D}/usr/bin/gxpc" || die
+	ln -s ${EPREFIX}/opt/${P}/gxpc "${ED}/usr/bin/gxpc" || die
 }
