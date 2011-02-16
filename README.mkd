@@ -15,6 +15,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 * [FastCommunity](http://www.cs.unm.edu/~aaron/research/fastmodularity.htm) : <code>sci-mathematics/FastCommunity</code>
 * [Eigen3](http://eigen.tuxfamily.org/) : <code>=dev-cpp/eigen3*</code>
 * [gensim](http://nlp.fi.muni.cz/projekty/gensim/) : <code>dev-python/gensim</code>
+* [GraphLab](http://www.graphlab.ml.cmu.edu/) : <code>sci-libs/graphlab</code>
 * [gxp](http://www.logos.t.u-tokyo.ac.jp/gxp/) : <code>sys-cluster/gxp</code>
 * [JCC](http://pypi.python.org/pypi/JCC/) : <code>dev-python/JCC</code>
 * [JPype](http://jpype.sourceforge.net/) : <code>dev-python/JPype</code>
