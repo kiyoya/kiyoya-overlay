@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit versionator
+inherit cmake-utils versionator
 
 EAPI=3
 
@@ -16,7 +16,7 @@ SRC_URI="http://${MY_PN}.googlecode.com/files/${MY_PN}_${MY_PV}.tar.gz"
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
-IUSE="tcmalloc"
+IUSE="doc tcmalloc"
 
 DEPEND=">=dev-libs/boost-1.37
 	>=dev-util/cmake-2.6
@@ -25,22 +25,21 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_PN}"
 
-src_prepare() {
-	epatch "${FILESDIR}"/${P}-prefix.patch
-}
-
 src_configure() {
-	econf || die
+	mycmakeargs=(
+		-D CMAKE_BUILD_TYPE=Release
+	)
+	cmake-utils_src_configure
 }
 
 src_compile() {
-	pushd release
-	emake || die
-	popd
+	cmake-utils_src_compile
 }
 
 src_install() {
-	pushd release
-	emake DESTDIR="${D}" install || die
-	popd
+	cmake-utils_src_install
+	if use doc; then
+		cd "${S}"/doc/doxygen
+		dohtml -r html/* || die
+	fi
 }
