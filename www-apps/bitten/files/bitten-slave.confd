@@ -1,0 +1,3 @@
+PIDFILE="/var/run/bitten.pid"
+DAEMON="/usr/bin/bitten-slave"
+DAEMON_ARGS=""

@@ -7,7 +7,7 @@ PYTHON_DEPEND="2"
 SUPPORT_PYTHON_ABIS="1"
 RESTRICT_PYTHON_ABIS="3.*"
 
-inherit distutils
+inherit distutils eutils
 
 MY_PN="Bitten"
 MY_P="${MY_PN}-${PV}"
@@ -26,3 +26,15 @@ RDEPEND="${DEPEND}
 	>=www-apps/trac-0.11"
 
 S="${WORKDIR}/${MY_P}"
+
+pkg_setup() {
+	enewgroup bitten
+	enewuser bitten -1 -1 -1 bitten
+}
+
+src_install() {
+	distutils_src_install
+
+	newconfd "${FILESDIR}"/bitten-slave.confd bitten-slave
+	newinitd "${FILESDIR}"/bitten-slave.initd bitten-slave
+}
