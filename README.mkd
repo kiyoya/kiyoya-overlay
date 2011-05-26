@@ -6,6 +6,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 
 ## Ebuilds for new packages
 
+* [AnnouncerPlugin](http://trac-hacks.org/wiki/AnnouncerPlugin) : <code>www-apps/trac-announcer</code>
 * [Bitten](http://bitten.edgewall.org/) : <code>www-apps/bitten</code>
 * [Chapel](http://chapel.cray.com) : <code>dev-lang/chapel</code>
 * Common Sense Computing Initiative
