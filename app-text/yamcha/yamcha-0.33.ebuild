@@ -4,6 +4,8 @@
 
 EAPI=3
 
+inherit eutils
+
 DESCRIPTION="Yet Another Multipurpose CHunk Annotator"
 HOMEPAGE="http://chasen.org/~taku/software/yamcha/"
 SRC_URI="http://chasen.org/~taku/software/yamcha/src/${P}.tar.gz"
