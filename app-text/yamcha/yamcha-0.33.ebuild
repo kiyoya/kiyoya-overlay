@@ -8,7 +8,7 @@ SRC_URI="http://chasen.org/~taku/software/yamcha/src/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 
 IUSE=""
 #IUSE="perl python ruby"
@@ -16,6 +16,10 @@ IUSE=""
 DEPEND="sci-misc/tinysvm
 	dev-lang/perl"
 #RDEPEND=""
+
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-gcc43.ebuild
+}
 
 src_test() {
 	make check || die
