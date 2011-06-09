@@ -15,6 +15,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 * [Classias](http://www.chokkan.org/software/classias/) : <code>sci-mathematics/classias</code>
 * [CVXOPT](http://abel.ee.ucla.edu/cvxopt/) : <code>dev-python/cvxopt</code>
 * [FastCommunity](http://www.cs.unm.edu/~aaron/research/fastmodularity.htm) : <code>sci-mathematics/FastCommunity</code>
+* [FootNoteMacro](http://trac-hacks.org/wiki/FootNoteMacro) : <code>www-apps/trac-footnote</code>
 * [FullBlogPlugin](http://trac-hacks.org/wiki/FullBlogPlugin) : <code>www-apps/trac-fullblog</code>
 * [Eigen3](http://eigen.tuxfamily.org/) : <code>=dev-cpp/eigen3*</code>
 * [gensim](http://nlp.fi.muni.cz/projekty/gensim/) : <code>dev-python/gensim</code>
