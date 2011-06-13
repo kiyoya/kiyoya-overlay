@@ -38,6 +38,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 * [plsi](http://chasen.org/~taku/software/plsi/) : <code>sci-mathematics/plsi</code>
 * [redsvd](http://code.google.com/p/redsvd/) : <code>dev-cpp/redsvd</code>
 * [South](http://pypi.python.org/pypi/South) : <code>dev-python/South</code>
+* [thebeast](http://code.google.com/p/thebeast/) : <code>sci-mathematics/thebeast</code>
 * [Tiarra](http://www.clovery.jp/tiarra/) : <code>net-irc/tiarra</code>
 * TokyoCabinet APIs
 	* for Perl : <code>dev-perl/tokyocabinet-perl</code>
