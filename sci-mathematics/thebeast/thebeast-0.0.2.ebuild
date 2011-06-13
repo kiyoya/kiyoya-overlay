@@ -33,5 +33,6 @@ src_install() {
 	dobin "${FILESDIR}"/${PN}
 	java-pkg_dojar "${PN}.jar"
 	dodoc CHANGES INSTALL README
+	dodoc -r examples/
 	use doc && java-pkg_dojavadoc doc
 }
