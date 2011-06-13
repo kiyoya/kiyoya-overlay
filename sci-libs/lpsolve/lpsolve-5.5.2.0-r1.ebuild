@@ -41,8 +41,6 @@ src_prepare() {
 	sed -i \
 		-e "s|^c=.*$|c=$(tc-getCC)|g" \
 		-e 's|^opts=.*$|opts="${CFLAGS}"|g' \
-		-e "s|-fpic|-fPIC|g" \
-		-e "s|-ldl||g" \
 		lp_solve/${COMPILE_COMMAND} ${PLIB}/${COMPILE_COMMAND} || die
 
 	if use java; then
@@ -57,6 +55,12 @@ src_prepare() {
 				lib/mac/build-osx || die
 			;;
 		*)
+			sed -i\
+				-e "s|^LPSOLVE_DIR=.*$|LPSOLVE_DIR=${S}|g" \
+				-e "s|^JDK_DIR=.*$|JDK_DIR=$( java-config -O )|g" \
+				-e '/^PLATFORM=/a echo ${PLATFORM} > build.platform' \
+				-e "s|../../../${PLIB}|${S}/${PLIB}|g" \
+				lib/build || die
 			;;
 		esac
 
@@ -80,6 +84,8 @@ src_compile() {
 			bash -x build-osx || die
 			;;
 		*)
+			cd lib
+			bash -x build || die
 			;;
 		esac
 
@@ -106,6 +112,8 @@ src_install() {
 			java-pkg_doso lib${PLIB}j.jnilib
 			;;
 		*)
+			cd lib/`cat lib/build.platform`
+			java-pkg_doso lib${PLIB}j.so
 			;;
 		esac
 
