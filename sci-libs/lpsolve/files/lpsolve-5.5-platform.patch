@@ -1,0 +1,40 @@
+--- lp_solve/ccc.0	2011-06-13 14:41:57.000000000 +0900
++++ lp_solve/ccc	2011-06-13 14:41:37.000000000 +0900
+@@ -9,6 +9,7 @@
+ echo 'main(){printf("ux%d", (int) (sizeof(void *)*8));}'>>/tmp/platform.c
+ $c /tmp/platform.c -o /tmp/platform
+ PLATFORM=`/tmp/platform`
++echo ${PLATFORM} > ccc.platform
+ rm /tmp/platform /tmp/platform.c >/dev/null 2>&1
+ 
+ mkdir bin bin/$PLATFORM >/dev/null 2>&1
+--- lp_solve/ccc.osx.0	2011-06-13 14:42:02.000000000 +0900
++++ lp_solve/ccc.osx	2011-06-13 14:42:16.000000000 +0900
+@@ -9,6 +9,7 @@
+ echo 'main(){printf("osx%d", (int) (sizeof(void *)*8));}'>>/tmp/platform.c
+ $c /tmp/platform.c -o /tmp/platform
+ PLATFORM=`/tmp/platform`
++echo ${PLATFORM} > ccc.platform
+ rm /tmp/platform /tmp/platform.c >/dev/null 2>&1
+ 
+ mkdir bin bin/$PLATFORM >/dev/null 2>&1
+--- lpsolve55/ccc.0	2011-06-13 14:42:24.000000000 +0900
++++ lpsolve55/ccc	2011-06-13 14:42:37.000000000 +0900
+@@ -9,6 +9,7 @@
+ echo 'main(){printf("ux%d", (int) (sizeof(void *)*8));}'>>/tmp/platform.c
+ $c /tmp/platform.c -o /tmp/platform
+ PLATFORM=`/tmp/platform`
++echo ${PLATFORM} > ccc.platform
+ rm /tmp/platform /tmp/platform.c >/dev/null 2>&1
+ 
+ mkdir bin bin/$PLATFORM >/dev/null 2>&1
+--- lpsolve55/ccc.osx.0	2011-06-13 14:42:43.000000000 +0900
++++ lpsolve55/ccc.osx	2011-06-13 14:42:48.000000000 +0900
+@@ -9,6 +9,7 @@
+ echo 'main(){printf("osx%d", (int) (sizeof(void *)*8));}'>>/tmp/platform.c
+ $c /tmp/platform.c -o /tmp/platform
+ PLATFORM=`/tmp/platform`
++echo ${PLATFORM} > ccc.platform
+ rm /tmp/platform /tmp/platform.c >/dev/null 2>&1
+ 
+ mkdir bin bin/$PLATFORM >/dev/null 2>&1
