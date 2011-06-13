@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 
 IUSE="java static-libs examples"
 DEPEND="java? ( >=virtual/jdk-1.5 )"
-RDEPEND="java? ( >=virtual/jre-1.5 )"
+RDEPEND="java? ( >=virtual/jre-1.5 dev-java/junit )"
 
 S="${WORKDIR}/${MYPN}_$(get_version_component_range 1-2)"
 
@@ -78,6 +78,11 @@ src_compile() {
 	if use java; then
 		pushd "${S}_java" || die
 
+		pushd "src/java" || die
+		ejavac ${PN}/*.java
+		jar cf ${PN}.jar ${PN}/*.class
+		popd || die
+
 		case "${CHOST}" in
 		*-darwin*)
 			cd lib/mac
@@ -105,6 +110,8 @@ src_install() {
 
 	if use java; then
 		pushd "${S}_java" || die
+
+		java-pkg_dojar src/java/lpsolve.jar
 
 		case "${CHOST}" in
 		*-darwin*)
