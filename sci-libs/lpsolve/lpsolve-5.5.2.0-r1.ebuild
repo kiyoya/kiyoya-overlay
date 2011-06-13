@@ -4,7 +4,7 @@
 
 EAPI="3"
 
-inherit eutils toolchain-funcs versionator
+inherit eutils java-pkg-opt-2 toolchain-funcs versionator
 
 MYPN="lp_solve"
 DESCRIPTION="Library for solving (mixed integer) linear programming problems"
@@ -17,8 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 
 IUSE="java static-libs examples"
-DEPEND=""
-RDEPEND="${DEPEND}"
+DEPEND="java? ( >=virtual/jdk-1.5 )"
+RDEPEND="java? ( >=virtual/jre-1.5 )"
 
 S="${WORKDIR}/${MYPN}_$(get_version_component_range 1-2)"
 
@@ -39,19 +39,52 @@ src_prepare() {
 		;;
 	esac
 	sed -i \
-		-e "s|^c=.*$$|c=$(tc-getCC)|g" \
+		-e "s|^c=.*$|c=$(tc-getCC)|g" \
 		-e 's|^opts=.*$|opts="${CFLAGS}"|g' \
 		-e "s|-fpic|-fPIC|g" \
 		-e "s|-ldl||g" \
 		lp_solve/${COMPILE_COMMAND} ${PLIB}/${COMPILE_COMMAND} || die
+
+	if use java; then
+		pushd "${S}_java" || die
+
+		case "${CHOST}" in
+		*-darwin*)
+			sed -i\
+				-e "s|^LPSOLVE_DIR=.*$|LPSOLVE_DIR=${S}|g" \
+				-e "s|^JDK_DIR=.*$|JDK_DIR=$( java-config -O )/include|g" \
+				-e "s|-dynamiclib |-install_name ${EPREFIX}/usr/$(get_libdir)/${PN}/lib${PLIB}j.jnilib -dynamiclib |g" \
+				lib/mac/build-osx || die
+			;;
+		*)
+			;;
+		esac
+
+		popd || die
+	fi
 }
 
 src_compile() {
 	for d in lp_solve ${PLIB}; do
-		pushd $d &> /dev/null
-		bash -x ${COMPILE_COMMAND}
-		popd &> /dev/null
+		pushd $d || die
+		bash -x ${COMPILE_COMMAND} || die
+		popd || die
 	done
+
+	if use java; then
+		pushd "${S}_java" || die
+
+		case "${CHOST}" in
+		*-darwin*)
+			cd lib/mac
+			bash -x build-osx || die
+			;;
+		*)
+			;;
+		esac
+
+		popd || die
+	fi
 }
 
 src_install() {
@@ -63,4 +96,19 @@ src_install() {
 		dolib.a lib${PLIB}.a || die
 	fi
 	dosym lib${PLIB}$(get_libname) /usr/$(get_libdir)/lib${PLIB}$(get_libname 1)
+
+	if use java; then
+		pushd "${S}_java" || die
+
+		case "${CHOST}" in
+		*-darwin*)
+			cd lib/mac
+			java-pkg_doso lib${PLIB}j.jnilib
+			;;
+		*)
+			;;
+		esac
+
+		popd || die
+	fi
 }
