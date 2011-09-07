@@ -52,6 +52,7 @@ src_prepare() {
 				-e "s|^LPSOLVE_DIR=.*$|LPSOLVE_DIR=${S}|g" \
 				-e "s|^JDK_DIR=.*$|JDK_DIR=$( java-config -O )/include|g" \
 				-e "s|-dynamiclib |-install_name ${EPREFIX}/usr/$(get_libdir)/${PN}/lib${PLIB}j.jnilib -dynamiclib |g" \
+				-e "s|-llpsolve55|-L${S}/${PLIB}/bin/\`cat ${S}/${PLIB}/ccc.platform\` -llpsolve55|g" \
 				lib/mac/build-osx || die
 			;;
 		*)
