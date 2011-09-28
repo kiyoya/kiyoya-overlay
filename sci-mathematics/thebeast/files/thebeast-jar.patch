@@ -1,0 +1,16 @@
+--- build.xml.0	2011-06-13 13:25:09.000000000 +0900
++++ build.xml	2011-06-13 13:25:49.000000000 +0900
+@@ -234,4 +234,11 @@
+   </target>
+ 
+   <target name="all" depends="init, clean, compile.module.thebeast, conf-os" description="build all"/>
+-</project>
+\ No newline at end of file
++
++  <target depends="all" name="jar">
++    <jar basedir="${basedir}/classes/production" jarfile="${basedir}/thebeast.jar">
++      <include name="thebeast/**" ></include>
++    </jar>
++  </target>
++
++</project>
