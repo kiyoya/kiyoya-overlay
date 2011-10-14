@@ -2,23 +2,27 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI=4
 
 inherit eutils java-pkg-opt-2 toolchain-funcs versionator
 
 MYPN="lp_solve"
-DESCRIPTION="Library for solving (mixed integer) linear programming problems"
-HOMEPAGE="http://lpsolve.sourceforge.net/"
+
+DESCRIPTION="Mixed Integer Linear Programming (MILP) solver"
+HOMEPAGE="http://sourceforge.net/projects/lpsolve/"
 SRC_URI="mirror://sourceforge/${PN}/${PN}/${PV}/${MYPN}_${PV}_source.tar.gz
 	java? ( mirror://sourceforge/${PN}/${PN}/${PV}/${MYPN}_${PV}_java.zip )"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
-
+KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE="java static-libs examples"
-DEPEND="java? ( >=virtual/jdk-1.5 )"
-RDEPEND="java? ( >=virtual/jre-1.5 dev-java/junit )"
+
+COMMON_DEPS="sci-libs/colamd"
+DEPEND="${COMMON_DEPS}
+	java? ( >=virtual/jdk-1.5 )"
+RDEPEND="${COMMON_DEPS}
+	java? ( >=virtual/jre-1.5 dev-java/junit )"
 
 S="${WORKDIR}/${MYPN}_$(get_version_component_range 1-2)"
 
