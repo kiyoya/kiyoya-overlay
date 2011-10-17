@@ -22,6 +22,17 @@ IUSE=""
 DEPEND=">=virtual/jdk-1.5"
 RDEPEND=">=virtual/jre-1.5
 	sys-libs/db:5.0[java]
-	dev-java/smack"
+	dev-java/smack:2.2"
 
-EANT_GENTOO_CLASSPATH="db,smack"
+EANT_GENTOO_CLASSPATH="db-5.0,smack-2.2"
+
+src_compile() {
+	eant full-jar || die
+	eant peer-jar || die
+	eant core-jar || die
+	#eant docgen || die
+}
+
+src_install() {
+	java-pkg_dojar *.jar
+}
