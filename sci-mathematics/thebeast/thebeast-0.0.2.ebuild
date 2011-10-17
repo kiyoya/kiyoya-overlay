@@ -27,7 +27,7 @@ DEPEND=">=virtual/jdk-1.5"
 RDEPEND=">=virtual/jre-1.5
 	dev-java/javacup:0
 	dev-java/jline:0
-	>=sci-libs/lpsolve-5.5[java]"
+	>=sci-mathematics/lpsolve-5.5[java]"
 
 java_prepare() {
 	epatch "${FILESDIR}"/${PN}-jar.patch
