@@ -22,6 +22,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 * [GraphLab](http://www.graphlab.ml.cmu.edu/) : <code>sci-libs/graphlab</code>
 * [gson](http://code.google.com/p/google-gson/) : <code>dev-java/gson</code>
 * [gxp](http://www.logos.t.u-tokyo.ac.jp/gxp/) : <code>sys-cluster/gxp</code>
+* [hunpos](http://code.google.com/p/hunpos/) : <code>app-text/hunpos</code>
 * [JCC](http://pypi.python.org/pypi/JCC/) : <code>dev-python/JCC</code>
 * [JPype](http://jpype.sourceforge.net/) : <code>dev-python/JPype</code>
 * [Large Graph Layout (LGL)](http://lgl.sourceforge.net/) : <code>sci-visualization/lgl</code>
@@ -35,10 +36,10 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 	* (Unofficial) for Python
 		* [msgpack-python](http://pypi.python.org/pypi/msgpack-python) : <code>dev-python/msgpack-python</code>
 * [neo4j](http://neo4j.org) : <code>dev-java/neo4j-kernel</code>, <code>dev-java/neo4j-index</code>
-* [pep8](http://pypi.python.org/pypi/pep8/) : <code>dev-python/pep8</code>
 * [plda](http://code.google.com/p/plda/) : <code>sci-mathematics/plda</code>
 * [plsi](http://chasen.org/~taku/software/plsi/) : <code>sci-mathematics/plsi</code>
 * [redsvd](http://code.google.com/p/redsvd/) : <code>dev-cpp/redsvd</code>
+* [Stanford Log-linear Part-Of-Speech Tagger](http://nlp.stanford.edu/software/tagger.shtml) : <code>app-text/stanford-postagger</code>
 * [South](http://pypi.python.org/pypi/South) : <code>dev-python/South</code>
 * [thebeast](http://code.google.com/p/thebeast/) : <code>sci-mathematics/thebeast</code>
 * [Tiarra](http://www.clovery.jp/tiarra/) : <code>net-irc/tiarra</code>

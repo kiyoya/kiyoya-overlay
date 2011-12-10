@@ -1,0 +1,4 @@
+#!/bin/sh
+
+java -mx300m -cp "$(java-config -p stanford-postagger):" \
+	edu.stanford.nlp.tagger.maxent.MaxentTagger -model $1 -textFile $2
