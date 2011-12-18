@@ -1,0 +1,36 @@
+--- fastcommunity_w_mh.cc.0	2011-12-19 00:00:06.605913721 +0900
++++ fastcommunity_w_mh.cc	2011-12-19 00:04:04.450913587 +0900
+@@ -74,6 +74,7 @@
+ #include <iostream>
+ #include <fstream>
+ #include <string>
++#include <string.h>
+ #include "stdlib.h"
+ #include "time.h"
+ #include "math.h"
+--- maxheap.h.0	2011-12-19 00:00:04.447038266 +0900
++++ maxheap.h	2011-12-19 00:02:34.802913265 +0900
+@@ -40,7 +40,9 @@
+ #if !defined(MAXHEAP_INCLUDED)
+ #define MAXHEAP_INCLUDED
+ 
+-#include <iostream.h>
++#include <iostream>
++
++using namespace std;
+ 
+ /*   Because using this heap requires us to be able to modify an arbitrary element's
+ 	data in constant O(1) time, I use to tricky tactic of having elements in an array-
+--- vektor.h.0	2011-12-19 00:00:01.797913579 +0900
++++ vektor.h	2011-12-19 00:03:45.080913580 +0900
+@@ -30,7 +30,9 @@
+ #if !defined(vektor_INCLUDED)
+ #define vektor_INCLUDED
+ 
+-#include <iostream.h>
++#include <iostream>
++
++using namespace std;
+ 
+ #if !defined(vektor_INCLUDED)
+ #define vektor_INCLUDED
