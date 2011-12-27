@@ -39,6 +39,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 * [plda](http://code.google.com/p/plda/) : <code>sci-mathematics/plda</code>
 * [plsi](http://chasen.org/~taku/software/plsi/) : <code>sci-mathematics/plsi</code>
 * [redsvd](http://code.google.com/p/redsvd/) : <code>dev-cpp/redsvd</code>
+* [SNAP](http://snap-graph.sourceforge.net/) : <code>sci-mathematics/snap</code>
 * [Stanford Log-linear Part-Of-Speech Tagger](http://nlp.stanford.edu/software/tagger.shtml) : <code>app-text/stanford-postagger</code>
 * [South](http://pypi.python.org/pypi/South) : <code>dev-python/South</code>
 * [thebeast](http://code.google.com/p/thebeast/) : <code>sci-mathematics/thebeast</code>
