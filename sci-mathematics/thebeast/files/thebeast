@@ -3,6 +3,4 @@
 libpath=$( java-config -i lpsolve )
 classpath=$( java-config -p thebeast,javacup,jline,lpsolve )
 
-export DYLD_LIBRARY_PATH=${libpath}
-
-java -cp ${classpath} -Dhome=${PWD} -Xmx1500m thebeast.pml.TheBeast $@
+java -cp ${classpath} -Djava.library.path=${libpath} -Dhome=${PWD} -Xmx1500m thebeast.pml.TheBeast $@
