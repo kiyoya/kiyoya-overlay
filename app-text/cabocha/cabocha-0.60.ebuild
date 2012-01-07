@@ -16,7 +16,7 @@ KEYWORDS="~amd64 x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 
 IUSE="perl unicode"
 
-DEPEND="app-text/ctf++
+DEPEND="app-text/crf++
 	app-text/mecab"
 
 src_configure() {
