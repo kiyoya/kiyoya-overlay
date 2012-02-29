@@ -1,0 +1,19 @@
+--- src/graph_generation/read_DIMACS_graph.c.0	2011-12-30 20:21:48.824937940 +0900
++++ src/graph_generation/read_DIMACS_graph.c	2011-12-30 20:23:35.863137246 +0900
+@@ -65,7 +65,15 @@
+     count = 0;
+ 
+     while (fgets(buf, 500, fp) != NULL)  {
+-        sscanf(buf, "%*c %ld %ld %d", &u, &v, &int_wt);
++
++        /* c is the comment symbol */
++        if (buf[0] == 'c')
++            continue;
++
++        if (buf[0] == 'a') {
++            sscanf(buf, "%*c %ld %ld %d", &u, &v, &int_wt);
++        }
++
+         if ((u <= 0) || (u > n) || (v <= 0) || (v > n)) {
+             fprintf(stderr, "Error reading edge # %d in the input file."
+                     " Please check the input graph file.\n", count+1);
