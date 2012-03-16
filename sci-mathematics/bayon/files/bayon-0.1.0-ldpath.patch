@@ -1,0 +1,13 @@
+--- Makefile.in.0	2012-03-16 11:11:57.921654579 +0900
++++ Makefile.in	2012-03-16 11:12:21.868592859 +0900
+@@ -38,8 +38,8 @@
+ TESTLDFLAGS = @MYTESTLDFLAGS@
+ CMDLDFLAGS = @MYCMDLDFLAGS@
+ LIBS = @LIBS@
+-LDENV = LD_RUN_PATH=.:/lib:/usr/lib:$(LIBDIR):$(HOME)/lib:/usr/local/lib:@MYRUNPATH@
+-RUNENV = @MYLDLIBPATHENV@=.:/lib:/usr/lib:$(LIBDIR):$(HOME)/lib:/usr/local/lib:@MYRUNPATH@
++LDENV =
++RUNENV =
+ DEFS = @DEFS@
+ 
+ # tmp file

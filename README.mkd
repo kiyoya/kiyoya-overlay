@@ -8,6 +8,7 @@ Add <code>http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml</cod
 
 * [AnnouncerPlugin](http://trac-hacks.org/wiki/AnnouncerPlugin) : <code>www-apps/trac-announcer</code>
 * [Bitten](http://bitten.edgewall.org/) : <code>www-apps/bitten</code>
+* [bayon](http://code.google.com/p/bayon/) : <code>sci-mathematics/bayon</code>
 * [Chapel](http://chapel.cray.com) : <code>dev-lang/chapel</code>
 * Common Sense Computing Initiative
 	* [ConceptNet](http://csc.media.mit.edu/conceptnet) : <code>dev-python/ConceptNet</code>
