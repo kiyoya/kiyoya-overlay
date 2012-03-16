@@ -13,9 +13,10 @@ SRC_URI="http://bayon.googlecode.com/files/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
-IUSE=""
+IUSE="+sparsehash test"
 
-DEPEND=""
+DEPEND="sparsehash? ( dev-cpp/sparsehash )
+	test? ( dev-cpp/gtest )"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
