@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
-
 EAPI=4
+
+inherit eutils
 
 DESCRIPTION="A simple and fast clustering tool"
 HOMEPAGE="http://code.google.com/p/bayon/"
