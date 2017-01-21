@@ -9,7 +9,7 @@ Add `http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml` to
 
 ### app-text
 
-* `app-text/hunpos`: [hunpos](http://code.google.com/p/hunpos/)
+* `app-text/hunpos`: [Open source reimplementation of TnT](https://github.com/halacsy/hunpos)
 * `app-text/stanford-postagger`: [Stanford Log-linear Part-Of-Speech Tagger](http://nlp.stanford.edu/software/tagger.shtml)
 
 ### dev-cpp

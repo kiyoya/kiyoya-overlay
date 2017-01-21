@@ -1,14 +1,15 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
-DESCRIPTION="open source HMM tagger"
-HOMEPAGE="http://code.google.com/p/hunpos/"
+inherit git-2
 
-inherit subversion
-ESVN_REPO_URI="http://hunpos.googlecode.com/svn/trunk/"
+DESCRIPTION="Open source reimplementation of TnT"
+HOMEPAGE="https://github.com/halacsy/hunpos"
+SRC_URI=""
+EGIT_REPO_URI="https://github.com/halacsy/hunpos.git"
 
 LICENSE="BSD-2"
 SLOT="0"
