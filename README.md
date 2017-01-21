@@ -12,10 +12,6 @@ Add `http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml` to
 * `app-text/hunpos`: [Open source reimplementation of TnT](https://github.com/halacsy/hunpos)
 * `app-text/stanford-postagger`: [Stanford Log-linear Part-Of-Speech Tagger](http://nlp.stanford.edu/software/tagger.shtml)
 
-### dev-cpp
-
-* `dev-cpp/redsvd`: [redsvd](http://code.google.com/p/redsvd/)
-
 ### dev-java
 
 * `dev-java/mallet`: [Mallet](http://mallet.cs.umass.edu/)
@@ -40,5 +36,6 @@ Add `http://github.com/kiyoya/kiyoya-overlay/raw/master/repository.xml` to
 * `sci-mathematics/lshkit`: [lshkit](http://lshkit.sourceforge.net/)
 * `sci-mathematics/plda`: [plda](http://code.google.com/p/plda/)
 * `sci-mathematics/plsi`: [plsi](http://chasen.org/~taku/software/plsi/)
+* `sci-mathematics/redsvd`: [A library for solving matrix decompositions](https://github.com/hillbig/redsvd)
 * `sci-mathematics/snap`: [SNAP](http://snap-graph.sourceforge.net/)
 * `sci-mathematics/thebeast`: [thebeast](http://code.google.com/p/thebeast/)
